@@ -3,9 +3,11 @@
 function palindrome($word)
 {
 
-  $n = strlen($word);
+  $string = str_replace(" ", "", $word);
 
-  $strarr = str_split($word);
+  $n = strlen($string);
+
+  $strarr = str_split($string);
 
   if ($n < 2) {
     return $n;
@@ -40,7 +42,7 @@ function palindrome($word)
           $start=$low+1;
       }
   }
-    
-  return substr($word, $start, $maxLength+$start);
+
+  return substr($string, $start, $maxLength+$start);
 
 }
