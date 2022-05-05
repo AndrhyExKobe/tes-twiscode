@@ -46,65 +46,11 @@ function palindrome($word)
   }
 
   $end = $start + $maxlength - 1; 
-  echo "Longest palindrome substring is ";
+
   for($j = $start; $$j <= $end; $j++)
   {
     echo $stringarr[$j];
   }
 
-  exit();
-
-  /* void printLPSS(char *s)
-  {
-      int maxLength = 1;  // The result (length of LPS)
-   
-      int start = 0;
-      int n = strlen(s);
-   
-      int low, high;
-   
-      // One by one consider every character as center point of 
-      // even and length palindromes
-      for (int i = 1; i < n; ++i)
-      {
-          // Find the longest odd length palindrome with center 
-          // point as i
-          low = i - 1;
-          high = i + 1;
-          while (low >= 0 && high < n && s[low] == s[high])
-          {
-              if (high - low + 1 > maxLength)
-              {
-                  start = low;
-                  maxLength = high - low + 1;
-              }
-              --low;
-              ++high;
-          }
-          // Find the longest even length palindrome with no centre point  
-          low = i - 1;
-          high = i;
-          while (low >= 0 && high < n && s[low] == s[high])
-          {
-              if (high - low + 1 > maxLength)
-              {
-                  start = low;
-                  maxLength = high - low + 1;
-              }
-              --low;
-              ++high;
-          }
-      }
-      //Printing the longest palindromic substring
-      int end = start + maxLength - 1; 
-      cout<<"Longest palindrome substring is ";
-      for( int i = start; i <= end; ++i )
-      {
-          cout<<s[i];
-      }
-      cout<<endl;
-      //Length of the above longest palindromic substring
-      cout<<maxLength<<endl;
-   } */
 
 }
