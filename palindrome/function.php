@@ -49,7 +49,7 @@ function palindrome($word)
   
   for($j = $start; $$j <= $end; $j++)
   {
-    $out = array_key_exists($stringarr[$j]) ? $stringarr[$j]:'';
+    $out = isset($stringarr[$j]) ? $stringarr[$j] : '';
     echo $out;
   }
 
