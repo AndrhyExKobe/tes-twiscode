@@ -1,0 +1,1 @@
+select id, tanggal_order, status, tanggal_pembayaran, total, jumlah_barang from transaksi
