@@ -3,55 +3,44 @@
 function palindrome($word)
 {
 
-  $string = $word;
- 
-  //remove all spaces
-  $string = str_replace(' ','', $string);
-  
-  //remove special characters
-  $string = preg_replace('/[^A-Za-z0-9\-]/','', $string);
-  
-  $stringarr = str_split($string);
+  $n = strlen($word);
 
-  $maxlength = 1;
+  $strarr = str_split($word);
 
-  $start = 0;
+  if ($n < 2) {
+    return $n;
+  }
 
-  $n = strlen($string);
+  $maxLength = 1;
+  $start=0;
 
   $low;
   $high;
 
-  for ($i=0; $i < $n; $i++) { 
-    $low = $i - 1;
-    $high = $i + 1;
-    while ($low >= 0 && $high < $n && $stringarr[$low] == $stringarr[$high]) {
-      if ($high - $low + 1 > $maxlength) {
-        $start = $low;
-        $maxlength = $high - $low + 1;
-      }
-      $low--;
-      $high++;
-    }
-    $low = $i - 1;
-    $high = $i;
-    while ($low >= 0 && $high < $n && $stringarr[$low] == $stringarr[$high]) {
-      if ($high - $low + 1 > $maxlength) {
-        $start = $low;
-        $maxlength = $high - $low + 1;
-      }
-      $low--;
-      $high++;
-    }
-  }
+  for ($i = 0; $i < $n; $i++) {
+      $low = $i - 1;
+      $high = $i + 1;
+      while ( $high < $n && $strarr[$high] == $strarr[$i]){
+        $high++;
+      } 
+    
+      while ($low >= 0 && $strarr[$low] == $strarr[$i]){
+        $low--;
 
-  $end = $start + $maxlength - 1; 
-  
-  for($j = $start; $$j <= $end; $j++)
-  {
-    $out = isset($stringarr[$j]) ? $stringarr[$j] : '';
-    echo $out;
-  }
+      }
+    
+      while ($low >= 0 && $high < $n && $strarr[$low] == $strarr[$high]){
+          $low--;
+          $high++;
+      }
 
+      $length = $high - $low - 1;
+      if ($maxLength < $length) {
+          $maxLength = $length;
+          $start=$low+1;
+      }
+  }
+    
+  return substr($word, $start, $maxLength+$start);
 
 }
