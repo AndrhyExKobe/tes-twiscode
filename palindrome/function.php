@@ -46,10 +46,11 @@ function palindrome($word)
   }
 
   $end = $start + $maxlength - 1; 
-
+  
   for($j = $start; $$j <= $end; $j++)
   {
-    echo $stringarr[$j];
+    $out = isset ($stringarr[$j]) ? $stringarr[$j]:'';
+    echo $out;
   }
 
 
