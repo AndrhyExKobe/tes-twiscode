@@ -1,1 +1,1 @@
-select id, tanggal_order, status, tanggal_pembayaran, total, jumlah_barang from transaksi
+select transaksi.id, transaksi.tanggal_order,transaksi.status_pelunasan,transaksi.tanggal_pembayaran, sum(detail_transaksi.subtotal) as total, sum(detail_transaksi.jumlah) as jumlah from transaksi inner join detail_transaksi on transaksi.id=detail_transaksi.id_transaksi group by detail_transaksi.id_transaksi;
